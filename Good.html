@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=center, initial-scale=1" />
+  <title>Good Fruit Schools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Colors */
+    :root {
+      --navy-green: #002f2f;
+      --milk: #fefcf6;
+      --dark-green: #004040;
+      --light-green: #a3c1ad;
+      --accent: #d8cfae;
+      --text-dark: #042a2b;
+      --text-light: #fefcf6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--milk);
+      color: var(--navy-green);
+      line-height: 1.6;
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--navy-green);
+      padding: 20px 40px;
+      color: var(--milk);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 36px;
+      letter-spacing: 1.5px;
+    }
+
+    .motto {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 6px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    nav {
+      background: var(--dark-green);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    nav a {
+      color: var(--milk);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 17px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(to right, rgba(0, 47, 47, 0.9), rgba(216, 207, 174, 0.7)),
+        url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--milk);
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* Floating pupils - translucent circles simulating 3D moving shapes */
+    .floating-pupil {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 63, 47, 0.4);
+      filter: drop-shadow(0 0 6px rgba(0, 63, 47, 0.6));
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      mix-blend-mode: screen;
+    }
+
+    .pupil1 {
+      width: 120px;
+      height: 120px;
+      top: 20%;
+      left: 10%;
+      animation-name: floatUpDown;
+      animation-duration: 6s;
+    }
+
+    .pupil2 {
+      width: 80px;
+      height: 80px;
+      top: 40%;
+      right: 15%;
+      animation-name: floatLeftRight;
+      animation-duration: 5.5s;
+    }
+
+    .pupil3 {
+      width: 100px;
+      height: 100px;
+      bottom: 25%;
+      left: 20%;
+      animation-name: floatUpDown;
+      animation-duration: 7s;
+    }
+
+    .pupil4 {
+      width: 90px;
+      height: 90px;
+      bottom: 10%;
+      right: 10%;
+      animation-name: floatLeftRight;
+      animation-duration: 6.5s;
+    }
+
+    @keyframes floatUpDown {
+      0% {
+        transform: translateY(0px);
+      }
+
+      100% {
+        transform: translateY(-30px);
+      }
+    }
+
+    @keyframes floatLeftRight {
+      0% {
+        transform: translateX(0px);
+      }
+
+      100% {
+        transform: translateX(30px);
+      }
+    }
+
+    .hero h2 {
+      font-size: 56px;
+      background: rgba(0, 47, 47, 0.75);
+      padding: 30px 40px;
+      border-radius: 14px;
+      animation: fadeInUp 1.5s ease-out;
+      max-width: 900px;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Container for sections */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h2.section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 40px;
+      color: var(--navy-green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--milk);
+      padding: 60px 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
+      color: var(--dark-green);
+    }
+
+    #about p {
+      max-width: 850px;
+      margin: 0 auto 30px auto;
+      font-size: 20px;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    /* Programs Section */
+    #programs {
+      margin-bottom: 60px;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 20px;
+      background-color: var(--milk);
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      background: var(--light-green);
+      padding: 25px 20px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, background 0.3s;
+      color: var(--dark-green);
+    }
+
+    .card:hover {
+      transform: scale(1.07);
+      background: var(--accent);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+      color: var(--navy-green);
+      font-weight: 700;
+    }
+
+    .card h3 {
+      margin-bottom: 14px;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    .card p {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    /* Facilities Section */
+    #facilities {
+      margin-bottom: 60px;
+    }
+
+    .facility-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .facility-item {
+      background: var(--light-green);
+      border-radius: 15px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      color: var(--dark-green);
+      font-weight: 600;
+    }
+
+    .facility-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      color: var(--navy-green);
+    }
+
+    .facility-item h4 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .facility-item p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--dark-green);
+    }
+
+    /* Activities Section */
+    #activities {
+      background: var(--milk);
+      padding: 60px 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
+      color: var(--dark-green);
+    }
+
+    .activity-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: center;
+      flex-wrap: wrap;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      background: var(--light-green);
+      padding: 20px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .activity-item:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    .activity-item img {
+      flex: 1 1 320px;
+      max-width: 420px;
+      border-radius: 18px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      object-fit: cover;
+      height: 240px;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
+    }
+
+    .activity-content {
+      flex: 2 1 450px;
+      font-weight: 600;
+    }
+
+    .activity-content h4 {
+      font-size: 28px;
+      color: var(--navy-green);
+      margin-bottom: 15px;
+      letter-spacing: 0.03em;
+      font-weight: 700;
+    }
+
+    .activity-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--dark-green);
+      font-weight: 500;
+    }
+
+    /* Testimonials Section */
+    #testimonials {
+      background: var(--light-green);
+      padding: 50px 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      margin-bottom: 80px;
+      color: var(--dark-green);
+    }
+
+    .testimonial {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      background: var(--milk);
+      padding: 25px 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+      font-style: italic;
+      position: relative;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 80px;
+      position: absolute;
+      top: 5px;
+      left: 15px;
+      color: var(--accent);
+      opacity: 0.3;
+      font-family: serif;
+    }
+
+    .testimonial p {
+      margin-bottom: 14px;
+      font-size: 18px;
+      color: var(--navy-green);
+      font-weight: 600;
+    }
+
+    .testimonial footer {
+      font-weight: 700;
+      color: yellow;
+      font-style: normal;
+      text-align: right;
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+      font-size: 17px;
+    }
+
+    footer {
+      background: var(--navy-green);
+      color: var(--milk);
+      padding: 30px;
+      text-align: center;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 75px) {
+      .hero h2 {
+        font-size: 38px;
+        padding: 20px 25px;
+      }
+
+      .activity-item {
+        flex-direction: column;
+      }
+
+      .activity-content,
+      .activity-item img {
+        flex: unset;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        height: 60vh;
+        padding: 10px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Good Fruit Schools</h1>
+      <div class="motto">"Academic Excellence & Moral Upbringing"</div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#activities">Activities</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <!-- floating pupils -->
+    <div class="floating-pupil pupil1"></div>
+    <div class="floating-pupil pupil2"></div>
+    <div class="floating-pupil pupil3"></div>
+    <div class="floating-pupil pupil4"></div>
+
+    <h2>Raising Future Leaders With Excellence & Morals</h2>
+  </section>
+
+  <section id="about" class="container">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      Good Fruit Schools has been dedicated to providing quality education and fostering strong moral values since its
+      inception. We believe every child deserves a nurturing environment that encourages growth academically, socially, and
+      spiritually.
+    </p>
+    <p>
+      Our mission is to cultivate responsible leaders of tomorrow by integrating academic excellence with character
+      development and community service.
+    </p>
+  </section>
+
+  <section id="programs" class="sections container">
+    <div class="card">
+      <h3>Creche</h3>
+      <p>Safe, nurturing care for children from 6 months to 2 years.</p>
+    </div>
+    <div class="card">
+      <h3>Pre-Nursery</h3>
+      <p>Early learning foundation through play and discovery.</p>
+    </div>
+    <div class="card">
+      <h3>Nursery 1 - 3</h3>
+      <p>Structured learning with creativity, music, and literacy.</p>
+    </div>
+    <div class="card">
+      <h3>Primary 1 - 6</h3>
+      <p>Building academic strength and moral values step-by-step.</p>
+    </div>
+    <div class="card">
+      <h3>Junior Secondary (JSS1 - JSS3)</h3>
+      <p>Broad-based curriculum to prepare for senior level.</p>
+    </div>
+    <div class="card">
+      <h3>Senior Secondary (SS1 - SS2)</h3>
+      <p>Focused discipline-based learning for future careers.</p>
+    </div>
+  </section>
+
+  <section id="facilities" class="container">
+    <h2 class="section-title">Our Facilities</h2>
+    <div class="facility-list">
+      <div class="facility-item">
+        <h4>Modern Classrooms</h4>
+        <p>Equipped with smart boards and comfortable seating to foster interactive learning.</p>
+      </div>
+      <div class="facility-item">
+        <h4>Science Labs</h4>
+        <p>State-of-the-art labs for Physics, Chemistry, and Biology experiments.</p>
+      </div>
+      <div class="facility-item">
+        <h4>Library</h4>
+        <p>A vast collection of books and digital resources for research and reading.</p>
+      </div>
+      <div class="facility-item">
+        <h4>Sports Ground</h4>
+        <p>Large outdoor fields for football, athletics, and other sports activities.</p>
+      </div>
+      <div class="facility-item">
+        <h4>Art Studio</h4>
+        <p>Creative space for painting, crafts, and music practice.</p>
+      </div>
+      <div class="facility-item">
+        <h4>Computer Lab</h4>
+        <p>High-speed internet and modern computers to support IT education.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities" class="container">
+    <h2 class="section-title">Extracurricular Activities</h2>
+
+    <div class="activity-item">
+      <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Children playing football" />
+      <div class="activity-content">
+        <h4>Sports & Games</h4>
+        <p>Football, basketball, athletics, and more help develop teamwork and physical fitness.</p>
+      </div>
+    </div>
+
+    <div class="activity-item">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Music class" />
+      <div class="activity-content">
+        <h4>Music & Arts</h4>
+        <p>Encouraging creativity through choir, instrumental music, drama, and fine arts.</p>
+      </div>
+    </div>
+
+    <div class="activity-item">
+      <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="Students in a science experiment" />
+      <div class="activity-content">
+        <h4>Science Clubs</h4>
+        <p>Hands-on activities and competitions to spark curiosity and innovation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="container">
+    <h2 class="section-title">Testimonials</h2>
+
+    <div class="testimonial">
+      <p>The growth in confidence and discipline I’ve seen in my son is amazing. I highly recommend this school to every parent."</p>
+      <footer>— Mrs. Ngozi, Parent</footer>
+    </div>
+
+    <div class="testimonial">
+      <p>Good Fruit Schools has transformed my child's learning. The teachers are caring and the moral teachings are top-notch!"</p>
+      <footer>— Mr. Emeka, Parent</footer>
+    </div>
+
+    <div class="testimonial">
+      <p>We chose Good Fruit because of their academic reputation. Now, my daughter loves school every single day!</p>
+      <footer>— Mrs. Nzeluibe, Parent</footer>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 Good Fruit Schools. All Rights Reserved.</p>
+  </footer>
+
+  <a href="https://wa.me/2347046944346" class="whatsapp-float" target="_blank" title="Chat on WhatsApp" aria-label="WhatsApp Chat">
+    &#128222;
+  </a>
+</body>
+
+</html>
